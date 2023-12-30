@@ -10,11 +10,14 @@
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
      	<?php } ?>
-     	<label>Nom d'utilisateur</label>
-     	<input type="text" name="uname" placeholder="nom d'utilisateur"><br>
 
-     	<label>Mot de passe</label>
-     	<input type="password" name="password" placeholder="mot de passe"><br>
+         <label> Nom d'utilisateur
+             <input type="text" name="uname" placeholder="nom d'utilisateur">
+         </label><br>
+
+         <label> Mot de passe
+             <input type="password" name="password" placeholder="mot de passe">
+         </label><br>
 
      	<button type="submit">Valider</button>
      </form>
