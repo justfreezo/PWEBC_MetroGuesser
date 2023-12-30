@@ -12,7 +12,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 </head>
 <body>
      <h1>Salut, <?php echo $_SESSION['user_name']; ?></h1>
-     <a href="logout.php">Déconnexion</a>
+     <a href="authentification/logout.php">Déconnexion</a>
 </body>
 </html>
 
