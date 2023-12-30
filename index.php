@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Connexion</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="js/script.js"></script>
     <script>
         function afficherInscription() {
             document.getElementById("inscriptionForm").style.display = "block";
@@ -16,31 +21,54 @@
     </script>
 </head>
 <body>
-    <form id="connexionForm" action="authentification/login.php" method="post">
-        <h2>Connexion</h2>
-        <?php if (isset($_GET['error'])) { ?>
-            <p class="error"><?php echo $_GET['error']; ?></p>
-        <?php } ?>
-        <label>Nom d'utilisateur
-            <input type="text" name="uname" placeholder="Nom d'utilisateur">
-        </label><br>
-        <label>Mot de passe
-            <input type="password" name="password" placeholder="Mot de passe">
-        </label><br>
-        <button type="submit">Valider</button>
-        <button type="button" onclick="afficherInscription()">Inscription</button>
-    </form>
+    <div class="wrapper">
+        <form id="connexionForm" action="authentification/login.php" method="post">
+            <div class="login_box">
+                <div class="login-header">
+                    <span>Login</span>
+                </div>
+                <div class="input_box">
+                    <input type="text" id="user" class="input-field" name="uname" placeholder="Nom d'utilisateur" required>
+                    <label for="user" class="label"> Nom d'utilisateur </label>
+                    <i class="bx bx-user icon"></i>
+                </div>
+                <div class="input_box">
+                    <input type="password" id="pass" class="input-field" name="password" placeholder="Mot de passe" required>
+                    <label for="pass" class="label"> Mot de passe </label>
+                    <i class="bx bx-lock-alt icon"></i>
+                </div>
+                <div class="input_box">
+                    <input type="submit" class="input-submit" value="Valider">
+                </div>
+                <div class="input-box">
+                    <button type="button" class="input-submit" onclick="afficherInscription()">Inscription</button>
+                </div>
+            </div>
+        </form>
 
-    <form id="inscriptionForm" action="authentification/inscription.php" method="post" style="display: none;">
-        <h2>Inscription</h2>
-        <label>Nom d'utilisateur
-            <input type="text" name="newUname" placeholder="Nom d'utilisateur">
-        </label><br>
-        <label>Mot de passe
-            <input type="password" name="newPassword" placeholder="Mot de passe">
-        </label><br>
-        <button type="submit">S'inscrire</button>
-        <button type="button" onclick="cacherInscription()">Annuler</button>
-    </form>
+        <form id="inscriptionForm" action="authentification/inscription.php" method="post" style="display: none;">
+            <div class="login_box">
+                <div class="login-header">
+                    <span>Sign in</span>
+                </div>
+                <div class="input_box">
+                    <input type="text" id="user" class="input-field" name="newUname" placeholder="Nom d'utilisateur" required>
+                    <label for="user" class="label"> Nom d'utilisateur</label>
+                    <i class="bx bx-user icon"></i>
+                </div>
+                <div class="input_box">
+                    <input type="password" id="pass" class="input-field" name="newPassword" placeholder="Mot de passe" required>
+                    <label for="pass" class="label"> Mot de passe </label>
+                    <i class="bx bx-lock-alt icon"></i>
+                </div>
+                <div class="input_box">
+                    <input type="submit" class="input-submit" value="S'inscrire">
+                </div>
+                <div class="input-box">
+                    <button type="button" class="input-submit"  onclick="cacherInscription()">Annuler</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
