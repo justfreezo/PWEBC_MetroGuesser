@@ -22,10 +22,10 @@ if (isset($_POST['newUname']) && isset($_POST['newPassword'])) {
     $newPass = validate($_POST['newPassword']);
 
     if (empty($newUname)) {
-        header("Location: index.php?error=Veuillez saisir un nom d'utilisateur");
+        header("Location: ../index.php?error=Veuillez saisir un nom d'utilisateur");
         exit();
     } else if(empty($newPass)){
-        header("Location: index.php?error=Veuillez saisir un mot de passe");
+        header("Location: ../index.php?error=Veuillez saisir un mot de passe");
         exit();
     } else{
         $sql = "INSERT INTO users (user_name, password) VALUES ('$newUname', '$newPass')";
