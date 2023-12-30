@@ -14,10 +14,10 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 	$pass = validate($_POST['password']);
 
 	if (empty($uname)) {
-		header("Location: index.php?error=Veuillez saisir un nom d'utilisateur");
+		header("Location: ../index.php?error=Veuillez saisir un nom d'utilisateur");
 	    exit();
 	}else if(empty($pass)){
-        header("Location: index.php?error=Veuillez saisir un mot de passe");
+        header("Location: ../index.php?error=Veuillez saisir un mot de passe");
 	    exit();
 	}else{
 		$sql = "SELECT * FROM users WHERE user_name='$uname' AND password='$pass'";
