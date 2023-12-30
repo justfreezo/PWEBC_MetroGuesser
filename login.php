@@ -7,8 +7,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 	function validate($data){
        $data = trim($data);
 	   $data = stripslashes($data);
-	   $data = htmlspecialchars($data);
-	   return $data;
+        return htmlspecialchars($data);
 	}
 
 	$uname = validate($_POST['uname']);
@@ -31,16 +30,14 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             	$_SESSION['user_name'] = $row['user_name'];
             	$_SESSION['id'] = $row['id'];
             	header("Location: home.php");
-		        exit();
             }else{
 				header("Location: index.php?error=Nom d'utilisateur ou mot de passe incorrect");
-		        exit();
-			}
-		}else{
+            }
+        }else{
 			header("Location: index.php?error=Nom d'utilisateur ou mot de passe incorrect");
-	        exit();
-		}
-	}
+        }
+        exit();
+    }
 	
 }else{
 	header("Location: index.php");
