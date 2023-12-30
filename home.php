@@ -5,7 +5,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
  ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 	<title>Accueil</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
