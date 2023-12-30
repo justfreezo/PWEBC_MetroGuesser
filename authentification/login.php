@@ -31,15 +31,15 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             	$_SESSION['id'] = $row['id'];
             	header("Location: ../home.php");
             }else{
-				header("Location: index.php?error=Nom d'utilisateur ou mot de passe incorrect");
+				header("Location: ../index.php?error=Nom d'utilisateur ou mot de passe incorrect");
             }
         }else{
-			header("Location: index.php?error=Nom d'utilisateur ou mot de passe incorrect");
+			header("Location: ../index.php?error=Nom d'utilisateur ou mot de passe incorrect");
         }
         exit();
     }
 	
 }else{
-	header("Location: index.php");
+	header("Location: ../index.php");
 	exit();
 }

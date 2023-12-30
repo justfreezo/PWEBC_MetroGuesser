@@ -31,7 +31,7 @@ if (isset($_POST['newUname']) && isset($_POST['newPassword'])) {
         $sql = "INSERT INTO users (user_name, password) VALUES ('$newUname', '$newPass')";
 
         if ($conn->query($sql) === TRUE) {
-            header("Location: home.php");
+            header("Location: ../home.php");
         } else {
             echo "Erreur : " . $sql . "<br>" . $conn->error;
         }
@@ -39,6 +39,6 @@ if (isset($_POST['newUname']) && isset($_POST['newPassword'])) {
     }
 
 }else {
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 }
