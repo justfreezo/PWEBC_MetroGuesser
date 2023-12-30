@@ -14,6 +14,7 @@
             document.getElementById("connexionForm").style.display = "block";
         }
     </script>
+
 </head>
 <body>
     <form id="connexionForm" action="authentification/login.php" method="post">
