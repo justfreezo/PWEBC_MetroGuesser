@@ -29,17 +29,17 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             if ($row['user_name'] === $uname && $row['password'] === $pass) {
             	$_SESSION['user_name'] = $row['user_name'];
             	$_SESSION['id'] = $row['id'];
-            	header("Location: home.php");
+            	header("Location: ../home.php");
             }else{
-				header("Location: index.php?error=Nom d'utilisateur ou mot de passe incorrect");
+				header("Location: ../index.php?error=Nom d'utilisateur ou mot de passe incorrect");
             }
         }else{
-			header("Location: index.php?error=Nom d'utilisateur ou mot de passe incorrect");
+			header("Location: ../index.php?error=Nom d'utilisateur ou mot de passe incorrect");
         }
         exit();
     }
 	
 }else{
-	header("Location: index.php");
+	header("Location: ../index.php");
 	exit();
 }
