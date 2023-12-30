@@ -1,57 +1,36 @@
-<?php 
+<?php
 session_start();
 
 if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
- ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-	<title>Accueil</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-</head>
-<body>
-     <h1>Salut, <?php echo $_SESSION['user_name']; ?></h1>
-     <a href="authentification/logout.php">Déconnexion</a>
+    ?>
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Accueil</title>
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="js/script.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <a class="input-submit"  href="authentification/logout.php">Déconnexion</a>
+            <a class="input-submit"  href="statistiques.php">Statistiques</a>
+        </div>
 
-    <script>
-        $.ajax({
-            url: 'https://data.iledefrance-mobilites.fr/api/explore/v2.1/catalog/datasets/emplacement-des-gares-idf-data-generalisee/exports/json?lang=fr&refine=mode%3A%22METRO%22&timezone=Europe%2FBerlin',
-            method: 'GET',
-            dataType: 'json',
-            success: function(data) {
-                // Check if data is an array and is not empty
-                if (Array.isArray(data) && data.length > 0) {
-                    // Iterate through each station
-                    $.each(data, function(index, station) {
-                        // Extract specific fields from each station
-                        var geoPoint = station.geo_point_2d;
-                        var resCom = station.res_com;
-                        var nomLong = station.nom_long;
+        <div class="welcome-message">
+            <h1>Bienvenue, <?php echo $_SESSION['user_name']; ?></h1>
+            <button class="input-submit"  onclick="startGame()">Jouer</button>
+        </div>
+    </body>
+    </html>
 
-
-                        // Do something with the extracted fields (e.g., log to console)
-                        console.log('Station ' + (index + 1) + ':');
-                        console.log('Geo Point:', geoPoint);
-                        console.log('Res Com:', resCom);
-                        console.log('Nom Long:', nomLong);
-                    });
-                } else {
-                    console.error('Data is not in the expected format.');
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('Request failed. Status: ' + status + ', Error: ' + error);
-            }
-        });
-    </script>
-</body>
-</html>
-
-<?php 
+    <?php
 }else{
-     header("Location: index.php");
-     exit();
+    header("Location: index.php");
+    exit();
 }
- ?>
+?>
