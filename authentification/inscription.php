@@ -27,7 +27,16 @@ if (isset($_POST['newUname']) && isset($_POST['newPassword'])) {
     } else if(empty($newPass)){
         header("Location: ../index.php?error=Veuillez saisir un mot de passe");
         exit();
-    } else{
+    }
+
+    $verificationQuery = "SELECT * FROM users WHERE user_name = '$newUname'";
+    $result = $conn->query($verificationQuery);
+
+    if ($result->num_rows > 0) {
+        header("Location: ../index.php?error=Nom d'utilisateur déjà pris");
+        exit();
+    }
+    else{
         $sql = "INSERT INTO users (user_name, password) VALUES ('$newUname', '$newPass')";
 
         if ($conn->query($sql) === TRUE) {
