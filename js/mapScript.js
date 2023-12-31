@@ -3,7 +3,7 @@
 // Wait for the DOM to be ready before executing any code
 $(document).ready(function () {
     // Initialize Leaflet map centered in Paris
-    var map = L.map('map').setView([48.8566, 2.3522], 13);
+    var map = L.map('map').setView([48.8566, 2.3522], 12);
 
     // Add OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
