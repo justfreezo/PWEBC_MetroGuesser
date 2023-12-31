@@ -23,13 +23,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
         <div class="welcome-message">
             <h1>Bienvenue, <?php echo $_SESSION['user_name']; ?></h1>
-            <button class="input-submit" onclick="openMapPage()">Jouer</button>
-
-            <script>
-                function openMapPage() {
-                    window.location.href = '';
-                }
-            </script>
+            <button class="input-submit"  onclick="startGame()">Jouer</button>
         </div>
     </body>
     </html>
