@@ -16,7 +16,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         <script src="js/mapScript.js"></script>
     </head>
     <body>
-        <h1>Station à trouver:</h1>
+        <h1>Station à trouver test:</h1>
         <h1 id="station_name">...</h1>
         <div id="map"></div>
     </body>
