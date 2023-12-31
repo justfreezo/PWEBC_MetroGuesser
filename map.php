@@ -18,7 +18,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
     <body>
         <h1>Station à trouver:</h1>
         <h1 id="station_name">...</h1>
-        <div id="map" style="height: 500px;"></div>
+        <div id="map" style="height: 500px; width: 100%;"></div>
     </body>
     </html>
     <?php
