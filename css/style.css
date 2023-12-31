@@ -166,3 +166,9 @@ a:hover{
 		padding: 7.5em 1.5em 4em 1.5em;
 	}
 }
+
+#map {
+	margin-top: 20px;
+	height: 500px; /* Adjust the height as needed */
+	width:100%;
+}
