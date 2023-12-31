@@ -19,6 +19,7 @@
             document.getElementById("connexionForm").style.display = "block";
         }
     </script>
+
 </head>
 <body>
     <div class="wrapper">

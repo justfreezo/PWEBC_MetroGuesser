@@ -32,7 +32,7 @@ if (isset($_POST['newUname']) && isset($_POST['newPassword'])) {
     $verificationQuery = "SELECT * FROM users WHERE user_name = '$newUname'";
     $result = $conn->query($verificationQuery);
 
-    if ($result->num_rows > 0) {
+    if ($result->num_rows != 0) {
         header("Location: ../index.php?error=Nom d'utilisateur déjà pris");
         exit();
     }
