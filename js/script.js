@@ -1,3 +1,3 @@
 function startGame(){
-    window.location.href = 'map.php';
+    window.location.href = 'game/map.php';
 }

@@ -156,5 +156,5 @@ function confirmLeave() {
 }
 
 function stopGame(){
-    window.location.href = 'home.php';
+    window.location.href = '../home.php';
 }
