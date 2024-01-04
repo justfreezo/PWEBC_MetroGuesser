@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+if (isset($_SESSION['user_name'])) {
     ?>
     <!DOCTYPE html>
     <html lang="fr">
@@ -16,9 +16,23 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         <script src="js/mapScript.js"></script>
     </head>
     <body>
-        <h1>Station à trouver test:</h1>
-        <h1 id="station_name">...</h1>
+        <div class="title">
+            <h1>Station à trouver :</h1>
+            <h1 id="station_name"> ...</h1>
+        </div>
+
         <div id="map"></div>
+
+        <div class="actions">
+            <div class="next">
+                <button class="input-submit" id="boutonSuivant"> Suivant </button>
+            </div>
+
+            <div class="cancel">
+                <button class="input-submit" onclick="stopGame()"> Arrêter de jouer </button>
+            </div>
+        </div>
+
     </body>
     </html>
     <?php
