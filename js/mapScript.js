@@ -27,6 +27,11 @@ $(document).ready(function () {
         minZoom: 11,
         maxZoom: 18
     }).addTo(map);
+    L.control.scale({
+        metric: true,  // Display the scale in meters
+        imperial: false  // Do not display the scale in miles
+    }).addTo(map);
+
 
     $.ajax({
         url: 'https://data.iledefrance-mobilites.fr/api/explore/v2.1/catalog/datasets/emplacement-des-gares-idf-data-generalisee/exports/json?lang=fr&refine=mode%3A%22METRO%22&timezone=Europe%2FBerlin',
@@ -102,12 +107,11 @@ $(document).ready(function () {
             stationMarker = L.marker(stationLatLng, { icon: customIcon('red') }).addTo(map);
 
 
-            polyline = L.polyline([clickedLatLng, stationLatLng], { color: 'green' }).addTo(map)
+            polyline = L.polyline([clickedLatLng, stationLatLng], { color: 'green'}).addTo(map)
                 .bindPopup(distance + " mètres")
                 .openPopup()
 
             updateScore(distance);
-
         }
         essai = true;
         afficherBoutonSuivant();
