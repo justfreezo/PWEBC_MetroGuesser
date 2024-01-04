@@ -13,8 +13,8 @@ if (isset($_SESSION['user_name'])) {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($row)  {
-        $score = $row["score"];
-        echo "<h2>Score de ".$_SESSION['user_name']." : $score</h2>";
+        $_SESSION['score'] = $row["score"];
+        header("Location: stats_display.php");
     } else {
         echo "<p>Aucun score trouvé pour ".$_SESSION['user_name']."</p>";
     }
