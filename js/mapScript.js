@@ -7,6 +7,7 @@ $(document).ready(function () {
     var stationName = null;
     var essai = false;
     var boutonSuiv = $('#boutonSuivant');
+    var progressBar = $('#progressBar');
 
     var stationMarker = null;
     var clickedMarker = null;
@@ -15,16 +16,15 @@ $(document).ready(function () {
     var stationsLimit = 5;
     var stationsGuessed = 0
 
+    var totalScore = 0;
+
     boutonSuiv.css('display', 'none');
 
-    // Use CartoDB Positron style tile layer
     L.tileLayer('https://tiles.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png', {
         attribution: '',
         minZoom: 11,
         maxZoom: 18
     }).addTo(map);
-
-
 
     $.ajax({
         url: 'https://data.iledefrance-mobilites.fr/api/explore/v2.1/catalog/datasets/emplacement-des-gares-idf-data-generalisee/exports/json?lang=fr&refine=mode%3A%22METRO%22&timezone=Europe%2FBerlin',
@@ -65,6 +65,8 @@ $(document).ready(function () {
             map.removeLayer(stationMarker);
             map.removeLayer(polyline);
         }
+
+        resetMapView();
         var randomStation = getRandomStation(stationsWithCoordinates);
         lat = randomStation.geo_point_2d.lat;
         lon = randomStation.geo_point_2d.lon;
@@ -98,6 +100,8 @@ $(document).ready(function () {
             polyline = L.polyline([clickedLatLng, stationLatLng], {color: 'green'}).addTo(map)
                 .bindPopup(distance + " mètres")
                 .openPopup();
+
+            updateScore(distance);
         }
         essai = true;
         afficherBoutonSuivant();
@@ -112,6 +116,26 @@ $(document).ready(function () {
             tooltipAnchor: [16, -28],
             shadowSize: [41, 41],
         });
+    }
+
+    function resetMapView() {
+        map.setView([48.8566, 2.3522], 12);
+    }
+
+    function updateScore(distance) {
+        var points = calculatePoints(distance);
+        totalScore += points;
+
+        document.getElementById('totalScore').textContent = totalScore;
+
+        var percentageProgress = (totalScore / 10000) * 100;
+        percentageProgress = Math.min(percentageProgress, 100);
+        progressBar.css('width', percentageProgress + '%');
+    }
+
+    function calculatePoints(distance) {
+        var maxDist = 10000;
+        return distance <= maxDist * 0.05 ? 2000 : distance >= maxDist ? 0 : Math.round(2000 - (distance / maxDist) * 2000);
     }
 
     function afficherBoutonSuivant() {
