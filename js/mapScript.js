@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     var map = L.map('map').setView([48.8566, 2.3522], 12);
     var stationsWithCoordinates = null;
     let lat = null;
@@ -8,8 +7,8 @@ $(document).ready(function () {
     var stationName = null;
     var essai = false;
     var boutonSuiv = $('#boutonSuivant');
-    var gameStartTime; // Variable to store the start time of the game
-    var totalGameTimeInSeconds = 0; // Variable to store the total time played
+    var gameStartTime;
+    var totalGameTime = 0;
 
     var stationMarker = null;
     var clickedMarker = null;
@@ -59,6 +58,8 @@ $(document).ready(function () {
         }
     });
 
+    gameStartTime = new Date();
+
     function newStation(){
         document.getElementById('totalRound').textContent = stationsGuessed + 1 + " sur 5";
 
@@ -83,8 +84,6 @@ $(document).ready(function () {
         stationName = randomStation.nom_long;
 
         $("#station_name").text(stationName);
-
-        gameStartTime = new Date();
     }
 
     function getRandomStation(data) {
@@ -141,15 +140,11 @@ $(document).ready(function () {
         var percentageProgress = (totalScore / 10000) * 100;
         percentageProgress = Math.min(percentageProgress, 100);
         $('#progressBar').css('width', percentageProgress + '%');
-        updateGameTime();
     }
 
     function updateGameTime() {
         var currentTime = new Date();
-        totalGameTimeInSeconds += Math.floor((currentTime - gameStartTime) / 1000); // Convert milliseconds to seconds
-
-        // You can use the totalGameTimeInSeconds variable to display the total time or save it to your database
-        console.log('Total time played:', totalGameTimeInSeconds + ' seconds');
+        totalGameTime = Math.floor((currentTime - gameStartTime) / 1000);
     }
 
     function calculatePoints(distance) {
@@ -168,12 +163,15 @@ $(document).ready(function () {
     }
 
     function saveGame() {
+        updateGameTime();
+
         $.ajax({
             type: 'POST',
             url: 'save_score.php',
             data: {
                 uname: playerName,
-                playerScore: totalScore
+                playerScore: totalScore,
+                timePlayer : totalGameTime
             },
             success: function(response) {
                 console.log('Score saved successfully:', response);

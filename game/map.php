@@ -37,11 +37,11 @@ if (isset($_SESSION['user_name'])) {
         <div id="map"></div>
 
         <div class="actions">
-            <div class="next">
+            <div class="action-button">
                 <button class="input-submit" id="boutonSuivant"> Suivant </button>
             </div>
 
-            <div class="cancel">
+            <div class="action-button">
                 <button class="input-submit" onclick="confirmLeave()"> Arrêter de jouer </button>
             </div>
         </div>
