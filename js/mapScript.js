@@ -54,7 +54,7 @@ $(document).ready(function () {
     function newStation(){
         if (stationsGuessed >= stationsLimit) {
             alert("Merci d'avoir joué !");
-            stopGame();
+            saveGame();
             return;
         }
         stationsGuessed += 1;
@@ -146,6 +146,24 @@ $(document).ready(function () {
             essai = false;
             boutonSuiv.css('display', 'none');
         });
+    }
+
+    function saveGame() {
+        $.ajax({
+            type: 'POST',
+            url: 'save_score.php',
+            data: {
+                uname: playerName,
+                playerScore: totalScore
+            },
+            success: function(response) {
+                console.log('Score saved successfully:', response);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error saving score:', error);
+            }
+        });
+        stopGame()
     }
 })
 

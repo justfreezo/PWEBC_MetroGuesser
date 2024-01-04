@@ -13,6 +13,7 @@ if (isset($_SESSION['user_name'])) {
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script> var playerName = "<?php echo $_SESSION['user_name']; ?>"</script>
         <script src="../js/mapScript.js"></script>
     </head>
     <body>
