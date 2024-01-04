@@ -66,7 +66,6 @@ $(document).ready(function () {
             map.removeLayer(polyline);
         }
         var randomStation = getRandomStation(stationsWithCoordinates);
-
         lat = randomStation.geo_point_2d.lat;
         lon = randomStation.geo_point_2d.lon;
         stationName = randomStation.nom_long;
@@ -91,7 +90,10 @@ $(document).ready(function () {
             var distance = Math.round(clickedLatLng.distanceTo(stationLatLng));
 
             clickedMarker = L.marker(clickedLatLng).addTo(map);
-            stationMarker = L.marker(stationLatLng).addTo(map);
+
+            stationMarker = L.marker(stationLatLng, { icon: customIcon('red') }).addTo(map);
+
+
 
             polyline = L.polyline([clickedLatLng, stationLatLng], {color: 'green'}).addTo(map)
                 .bindPopup(distance + " mètres")
@@ -100,6 +102,17 @@ $(document).ready(function () {
         essai = true;
         afficherBoutonSuivant();
     });
+
+    function customIcon(color) {
+        return L.icon({
+            iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${color}.png`,
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            tooltipAnchor: [16, -28],
+            shadowSize: [41, 41],
+        });
+    }
 
     function afficherBoutonSuivant() {
         boutonSuiv.css('display', 'block');

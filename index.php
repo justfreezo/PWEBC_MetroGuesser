@@ -30,12 +30,10 @@
                 </div>
                 <div class="input_box">
                     <input type="text" id="user" class="input-field" name="uname" placeholder="Nom d'utilisateur">
-                    <label for="user" class="label"> Nom d'utilisateur </label>
                     <i class="bx bx-user icon"></i>
                 </div>
                 <div class="input_box">
                     <input type="password" id="pass" class="input-field" name="password" placeholder="Mot de passe">
-                    <label for="pass" class="label"> Mot de passe </label>
                     <i class="bx bx-lock-alt icon"></i>
                 </div>
                 <div class="input_box">
