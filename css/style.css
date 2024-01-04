@@ -176,18 +176,18 @@ a:hover{
 	background: var(--second-color);
 }
 
+#map {
+	align-self: center;
+	height: 100%;
+	width: 70%;
+}
 
 .actions {
 	display: flex;
 	justify-content: space-between;
-	width: 80%;
+	width: 70%;
 	margin-top: 20px;
-}
-
-#map {
-	align-self: center;
-	height: 100%;
-	width: 60%;
+	margin-bottom: 2%;
 }
 
 .cancel{
