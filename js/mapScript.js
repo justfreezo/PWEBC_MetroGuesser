@@ -14,10 +14,14 @@ $(document).ready(function () {
 
     boutonSuiv.css('display', 'none');
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    // Use CartoDB Positron style tile layer
+    L.tileLayer('https://tiles.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png', {
+        attribution: '',
         minZoom: 11,
         maxZoom: 18
     }).addTo(map);
+
+
 
     $.ajax({
         url: 'https://data.iledefrance-mobilites.fr/api/explore/v2.1/catalog/datasets/emplacement-des-gares-idf-data-generalisee/exports/json?lang=fr&refine=mode%3A%22METRO%22&timezone=Europe%2FBerlin',
