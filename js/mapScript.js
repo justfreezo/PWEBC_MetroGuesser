@@ -7,7 +7,6 @@ $(document).ready(function () {
     var stationName = null;
     var essai = false;
     var boutonSuiv = $('#boutonSuivant');
-    var progressBar = $('#progressBar');
 
     var stationMarker = null;
     var clickedMarker = null;
@@ -130,7 +129,8 @@ $(document).ready(function () {
 
         var percentageProgress = (totalScore / 10000) * 100;
         percentageProgress = Math.min(percentageProgress, 100);
-        progressBar.css('width', percentageProgress + '%');
+        $('#progressBar').css('width', percentageProgress + '%');
+
     }
 
     function calculatePoints(distance) {

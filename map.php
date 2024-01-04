@@ -21,12 +21,12 @@ if (isset($_SESSION['user_name'])) {
             <h1 id="station_name"> ...</h1>
         </div>
 
-        <div id="scoreDisplay">Total Score: <span id="totalScore">0</span></div>
-
-        <div id="progressBarContainer">
-            <div id="progressBar"></div>
+        <div class="map-container">
+            <div id="scoreDisplay">Score total : <span id="totalScore">0</span></div>
+            <div class="progress-container">
+                <div id="progressBar"></div>
+            </div>
         </div>
-
         <div id="map"></div>
 
         <div class="actions">

@@ -13,15 +13,14 @@
 }
 
 body {
-	background: url('../img/background.svg') center center/cover no-repeat fixed; /* Update the path accordingly */
+	background: url('../img/background.svg') center center/cover no-repeat fixed;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	margin: 0; /* Remove default margin */
+	margin: 0;
 	flex-direction: column;
 }
-
 
 .header{
 	display: flex;
@@ -178,33 +177,43 @@ a:hover{
 	background: var(--second-color);
 }
 
+.map-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	width: 20%;
+	margin-top: -6%;
+	margin-right: 50%;
+}
+
+
 #scoreDisplay {
-	position: absolute;
-	top: 20px;
-	left: 20px;
+	width: 165px;
 	background-color: rgba(255, 255, 255, 0.7);
 	padding: 10px;
 	border-radius: 5px;
 	font-weight: bold;
+	margin-bottom: 10px;
 }
 
 .progress-container {
-	margin-top: 10px;
-	width: 100%;
-	height: 30px;
+	width: 165px;
+	height: 20px;
 	background-color: var(--second-color);
 	border-radius: 5px;
 	overflow: hidden;
 }
 
 #progressBar {
-	width: 500px;
+	width: 0;
 	height: 100%;
-	background-color: var(--second-color);
-	transition: width 0.3s ease-in-out;
+	background: #58ed64;
+	transition: all 0.2s;
 }
 
 #map {
+	margin-top: 20px;
 	align-self: center;
 	height: 100%;
 	width: 70%;
