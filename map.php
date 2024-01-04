@@ -29,7 +29,7 @@ if (isset($_SESSION['user_name'])) {
             </div>
 
             <div class="cancel">
-                <button class="input-submit" onclick="stopGame()"> Arrêter de jouer </button>
+                <button class="input-submit" onclick="confirmLeave()"> Arrêter de jouer </button>
             </div>
         </div>
 

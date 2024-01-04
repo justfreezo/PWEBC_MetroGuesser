@@ -12,6 +12,9 @@ $(document).ready(function () {
     var clickedMarker = null;
     var polyline = null;
 
+    var stationsLimit = 5;
+    var stationsGuessed = 0
+
     boutonSuiv.css('display', 'none');
 
     // Use CartoDB Positron style tile layer
@@ -49,7 +52,14 @@ $(document).ready(function () {
         }
     });
 
-    function newStation(data){
+    function newStation(){
+        if (stationsGuessed >= stationsLimit) {
+            alert("Merci d'avoir joué !");
+            stopGame();
+            return;
+        }
+        stationsGuessed += 1;
+
         if (clickedMarker) {
             map.removeLayer(clickedMarker);
             map.removeLayer(stationMarker);
@@ -81,10 +91,9 @@ $(document).ready(function () {
             var distance = Math.round(clickedLatLng.distanceTo(stationLatLng));
 
             clickedMarker = L.marker(clickedLatLng).addTo(map);
-
             stationMarker = L.marker(stationLatLng).addTo(map);
 
-            polyline = L.polyline([clickedLatLng, stationLatLng], {color: 'blue'}).addTo(map)
+            polyline = L.polyline([clickedLatLng, stationLatLng], {color: 'green'}).addTo(map)
                 .bindPopup(distance + " mètres")
                 .openPopup();
         }
@@ -95,16 +104,20 @@ $(document).ready(function () {
     function afficherBoutonSuivant() {
         boutonSuiv.css('display', 'block');
 
-        boutonSuiv.on('click', function() {
+        boutonSuiv.off('click').on('click', function() {
             newStation();
             essai = false;
             boutonSuiv.css('display', 'none');
         });
-
     }
 })
 
+function confirmLeave() {
+    if (confirm("Voulez-vous quitter le jeu ? Vos points ne seront pas sauvegardés.")) {
+        stopGame()
+    }
+}
+
 function stopGame(){
     window.location.href = 'home.php';
-    // Sauvegarder le score
 }
