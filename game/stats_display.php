@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['score']) && isset($_SESSION['user_name'])) {
+if (isset($_SESSION['score']) && isset($_SESSION['user_name']) && isset($_SESSION['timePlayed']) && isset($_SESSION['nbGame'])) {
     ?>
     <!DOCTYPE html>
     <html lang="fr">
@@ -14,10 +14,29 @@ if (isset($_SESSION['score']) && isset($_SESSION['user_name'])) {
         <script src="../js/mapScript.js"></script>
     </head>
     <body>
-        <h1>Statistiques du joueur <?php echo $_SESSION['user_name'] ?></h1>
-        <div class="stats">
-            <p>Score : <?php echo $_SESSION['score'] ?></p>
+        <div class="input_box">
+            <h1>Statistiques du joueur <?php echo $_SESSION['user_name'] ?></h1>
+
+            <div class="stats">
+                <table class="stats-table">
+                    <tr>
+                        <td>Score total :</td>
+                        <td><?php echo htmlspecialchars($_SESSION['score']) ?></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre de parties jouées :</td>
+                        <td><?php echo htmlspecialchars($_SESSION['nbGame']) ?></td>
+                    </tr>
+                    <tr>
+                        <td>Durée de jeu :</td>
+                        <td><?php echo htmlspecialchars($_SESSION['timePlayed']) ?> secondes</td>
+                    </tr>
+                </table>
+            </div>
+
+            <a href="../home.php" class="input-submit">Retour</a>
         </div>
+
     </body>
     </html>
     <?php

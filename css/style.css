@@ -127,6 +127,7 @@ a:hover{
 	border-radius: 30px;
 	outline: none;
 }
+
 .input-field::placeholder{
 	color: #c6c3c3;
 }
@@ -232,12 +233,39 @@ a:hover{
 	margin-bottom: 2%;
 }
 
-.cancel{
+.action-button{
 	width: 40%;
 }
 
-.next{
-	width: 40%;
+.stats{
+	align-self: center;
+	justify-self: center;
+	padding: 5%;
+}
+
+.stats-table {
+	border-collapse: collapse;
+	width: 100%;
+	max-width: 400px;
+	margin-top: 20px;
+}
+
+.stats-table td {
+	border: 1px solid #ccc;
+	padding: 8px;
+}
+
+.stats-table tr:not(:last-child) {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stats-table td:first-child {
+	font-weight: bold;
+	width: 50%;
+}
+
+.stats-table td:nth-child(2) {
+	text-align: right;
 }
 
 @media only screen and (max-width: 564px) {
