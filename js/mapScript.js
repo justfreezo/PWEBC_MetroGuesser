@@ -2,6 +2,12 @@ $(document).ready(function () {
 
     var map = L.map('map').setView([48.8566, 2.3522], 12);
 
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18
+    }).addTo(map);
+
+
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
     $.ajax({
