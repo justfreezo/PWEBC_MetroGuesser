@@ -11,6 +11,7 @@ if (isset($_SESSION['user_name'])) {
         <title>Map</title>
         <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <script src="https://github.com/IvanSanchez/Leaflet.Polyline.SnakeAnim/blob/master/L.Polyline.SnakeAnim.js"></script>
         <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script> var playerName = "<?php echo $_SESSION['user_name']; ?>"</script>
@@ -24,6 +25,7 @@ if (isset($_SESSION['user_name'])) {
 
         <div class="map-container">
             <div id="scoreDisplay">Score total : <span id="totalScore">0</span></div>
+            <div id="RoundDisplay">Manche : <span id="totalRound">1 sur 5</span></div>
             <div class="progress-container">
                 <div id="progressBar"></div>
             </div>

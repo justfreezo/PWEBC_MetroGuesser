@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+
     var map = L.map('map').setView([48.8566, 2.3522], 12);
     var stationsWithCoordinates = null;
     let lat = null;
@@ -52,11 +53,14 @@ $(document).ready(function () {
     });
 
     function newStation(){
+        document.getElementById('totalRound').textContent = stationsGuessed + 1 + " sur 5";
+
         if (stationsGuessed >= stationsLimit) {
             alert("Merci d'avoir joué !");
             saveGame();
             return;
         }
+
         stationsGuessed += 1;
 
         if (clickedMarker) {
@@ -78,7 +82,6 @@ $(document).ready(function () {
         return data[Math.floor(Math.random() * data.length)];
     }
 
-
     map.on('click', function (e) {
         if(!essai){
 
@@ -95,12 +98,12 @@ $(document).ready(function () {
             stationMarker = L.marker(stationLatLng, { icon: customIcon('red') }).addTo(map);
 
 
-
-            polyline = L.polyline([clickedLatLng, stationLatLng], {color: 'green'}).addTo(map)
+            polyline = L.polyline([clickedLatLng, stationLatLng], { color: 'green' }).addTo(map)
                 .bindPopup(distance + " mètres")
-                .openPopup();
+                .openPopup()
 
             updateScore(distance);
+
         }
         essai = true;
         afficherBoutonSuivant();

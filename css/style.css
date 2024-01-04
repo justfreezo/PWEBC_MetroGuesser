@@ -132,25 +132,6 @@ a:hover{
 	margin-bottom: 10px;
 }
 
-.label{
-	position: absolute;
-	top: 15px;
-	left: 20px;
-	transition: .2s;
-}
-
-.input-field:focus ~.label,
-.input-field:valid ~.label{
-	position: absolute;
-	top: -10px;
-	left: 20px;
-	font-size: 14px;
-	background-color: var(--primary-color);
-	border-radius: 30px;
-	color: black;
-	padding: 0 10px;
-}
-
 .icon{
 	position: absolute;
 	top: 18px;
@@ -195,12 +176,22 @@ a:hover{
 	border-radius: 5px;
 	font-weight: bold;
 	margin-bottom: 10px;
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+#RoundDisplay {
+	width: 165px;
+	background-color: rgba(255, 255, 255, 0.7);
+	padding: 10px;
+	border-radius: 5px;
+	font-weight: bold;
+	margin-bottom: 10px;
 }
 
 .progress-container {
 	width: 165px;
 	height: 20px;
-	background-color: var(--second-color);
+	background-color: rgba(255, 255, 255, 0.7);
 	border-radius: 5px;
 	overflow: hidden;
 }
