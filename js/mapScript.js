@@ -8,6 +8,8 @@ $(document).ready(function () {
     var stationName = null;
     var essai = false;
     var boutonSuiv = $('#boutonSuivant');
+    var gameStartTime; // Variable to store the start time of the game
+    var totalGameTimeInSeconds = 0; // Variable to store the total time played
 
     var stationMarker = null;
     var clickedMarker = null;
@@ -76,6 +78,8 @@ $(document).ready(function () {
         stationName = randomStation.nom_long;
 
         $("#station_name").text(stationName);
+
+        gameStartTime = new Date();
     }
 
     function getRandomStation(data) {
@@ -133,7 +137,15 @@ $(document).ready(function () {
         var percentageProgress = (totalScore / 10000) * 100;
         percentageProgress = Math.min(percentageProgress, 100);
         $('#progressBar').css('width', percentageProgress + '%');
+        updateGameTime();
+    }
 
+    function updateGameTime() {
+        var currentTime = new Date();
+        totalGameTimeInSeconds += Math.floor((currentTime - gameStartTime) / 1000); // Convert milliseconds to seconds
+
+        // You can use the totalGameTimeInSeconds variable to display the total time or save it to your database
+        console.log('Total time played:', totalGameTimeInSeconds + ' seconds');
     }
 
     function calculatePoints(distance) {
