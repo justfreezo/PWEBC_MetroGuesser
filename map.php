@@ -21,6 +21,8 @@ if (isset($_SESSION['user_name'])) {
             <h1 id="station_name"> ...</h1>
         </div>
 
+        <div id="map"></div>
+
         <div class="actions">
             <div class="next">
                 <button class="input-submit" id="boutonSuivant"> Suivant </button>
@@ -28,13 +30,6 @@ if (isset($_SESSION['user_name'])) {
 
             <div class="cancel">
                 <button class="input-submit" onclick="stopGame()"> Arrêter de jouer </button>
-            </div>
-        </div>
-
-        <div class="game">
-            <div id="map"></div>
-            <div class="picture">
-                <img src="" alt="Image du métro à trouver">
             </div>
         </div>
 

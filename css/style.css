@@ -184,30 +184,18 @@ a:hover{
 	margin-top: 20px;
 }
 
+#map {
+	align-self: center;
+	height: 100%;
+	width: 60%;
+}
+
 .cancel{
 	width: 40%;
 }
 
 .next{
 	width: 40%;
-}
-
-.game{
-	display: flex;
-	margin-top: 30px;
-	height: 75%;
-	width: 100%;
-}
-
-#map {
-	align-self: flex-start;
-	height: 100%;
-	width: 55%;
-}
-
-.picture{
-	border: black 3px solid;
-	width: 45%;
 }
 
 @media only screen and (max-width: 564px) {
