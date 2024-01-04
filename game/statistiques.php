@@ -1,21 +1,18 @@
 <?php
-
 session_start();
-
-include "../authentification/db_conn.php";
 
 if (isset($_SESSION['user_name'])) {
 
     $userId = $_SESSION['user_name'];
 
-    $sql = "SELECT score FROM users WHERE user_name = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $userId);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $pdo = new PDO("mysql:server=localhost;dbname=metroguesser", "root", "paulojulia");
+    $stmt = $pdo->prepare("SELECT score FROM users WHERE user_name = :user_name;");
 
-    if ($result->num_rows > 0)  {
-        $row = $result->fetch_assoc();
+    $stmt->bindParam(':user_name', $userId);
+    $result = $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($row)  {
         $score = $row["score"];
         echo "<h2>Score de ".$_SESSION['user_name']." : $score</h2>";
     } else {

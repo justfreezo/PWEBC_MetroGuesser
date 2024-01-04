@@ -28,6 +28,9 @@
                 <div class="login-header">
                     <span>Login</span>
                 </div>
+                <?php if (isset($_GET['error'])) { ?>
+                    <p class="error"><?php echo $_GET['error']; ?></p>
+                <?php } ?>
                 <div class="input_box">
                     <input type="text" id="user" class="input-field" name="uname" placeholder="Nom d'utilisateur">
                     <i class="bx bx-user icon"></i>

@@ -1,14 +1,4 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "paulojulia";
-$dbname = "metroguesser";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-if (!$conn) {
-    echo "Connexion échouée";
-}
 
 if (isset($_POST['newUname']) && isset($_POST['newPassword'])) {
 
@@ -29,20 +19,27 @@ if (isset($_POST['newUname']) && isset($_POST['newPassword'])) {
         exit();
     }
 
-    $verificationQuery = "SELECT * FROM users WHERE user_name = '$newUname'";
-    $result = $conn->query($verificationQuery);
+    $pdo = new PDO("mysql:host=localhost;dbname=metroguesser", "root", "paulojulia");
 
-    if ($result->num_rows != 0) {
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE user_name = :newUname");
+    $stmt->bindParam(':newUname', $newUname);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+
+    if ($result) {
         header("Location: ../index.php?error=Nom d'utilisateur déjà pris");
         exit();
     }
     else{
-        $sql = "INSERT INTO users (user_name, password) VALUES ('$newUname', '$newPass')";
+        $stmt = $pdo->prepare("INSERT INTO users (user_name, password) VALUES (:newUname, :newPass)");
 
-        if ($conn->query($sql) === TRUE) {
+        $stmt->bindParam(':newUname', $newUname);
+        $stmt->bindParam(':newPass', $newPass);
+
+        if ($stmt->execute()) {
             header("Location: ../home.php");
         } else {
-            echo "Erreur : " . $sql . "<br>" . $conn->error;
+            echo "Erreur : " . $stmt->errorInfo()[2];
         }
         exit;
     }

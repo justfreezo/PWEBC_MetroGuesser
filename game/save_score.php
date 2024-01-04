@@ -1,6 +1,4 @@
 <?php
-session_start();
-include "../authentification/db_conn.php";
 
 if (isset($_POST['playerScore']) && isset($_POST['uname']))  {
 

@@ -1,6 +1,6 @@
 <?php
+
 session_start();
-include "db_conn.php";
 
 if (isset($_POST['uname']) && isset($_POST['password'])) {
 
@@ -20,19 +20,19 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
         header("Location: ../index.php?error=Veuillez saisir un mot de passe");
         exit();
     }else{
-        $sql = "SELECT * FROM users WHERE user_name='$uname' AND password='$pass'";
 
-        $result = mysqli_query($conn, $sql);
+        $pdo = new PDO("mysql:server=localhost;dbname=metroguesser", "root", "paulojulia");
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE user_name=:uname AND password=:pass;");
 
-        if (mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
-            if ($row['user_name'] === $uname && $row['password'] === $pass) {
-                $_SESSION['user_name'] = $row['user_name'];
-                $_SESSION['id'] = $row['id'];
-                header("Location: ../home.php");
-            }else{
-                header("Location: ../index.php?error=Nom d'utilisateur ou mot de passe incorrect");
-            }
+        $stmt->bindParam(':uname', $uname);
+        $stmt->bindParam(':pass', $pass);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            $_SESSION['user_name'] = $result['user_name'];
+            $_SESSION['id'] = $result['id'];
+            header("Location: ../home.php");
         }else{
             header("Location: ../index.php?error=Nom d'utilisateur ou mot de passe incorrect");
         }
