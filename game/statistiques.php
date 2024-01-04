@@ -2,7 +2,7 @@
 
 session_start();
 
-include "authentification/db_conn.php";
+include "../authentification/db_conn.php";
 
 if (isset($_SESSION['user_name'])) {
 
@@ -23,6 +23,6 @@ if (isset($_SESSION['user_name'])) {
     }
 
 } else {
-    header("Location: home.php");
+    header("Location: ../home.php");
     exit();
 }

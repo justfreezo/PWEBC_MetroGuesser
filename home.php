@@ -17,7 +17,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         <div class="welcome-message">
             <div class="header">
                 <a class="input-submit"  href="authentification/logout.php">Déconnexion</a>
-                <a class="input-submit"  href="statistiques.php">Statistiques</a>
+                <a class="input-submit"  href="game/statistiques.php">Statistiques</a>
             </div>
 
             <div class="title">

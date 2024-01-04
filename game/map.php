@@ -9,11 +9,11 @@ if (isset($_SESSION['user_name'])) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Map</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="js/mapScript.js"></script>
+        <script src="../js/mapScript.js"></script>
     </head>
     <body>
         <div class="title">
@@ -44,7 +44,7 @@ if (isset($_SESSION['user_name'])) {
     <?php
 
 } else {
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 }
 
