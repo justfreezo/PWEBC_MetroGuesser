@@ -175,26 +175,29 @@ a:hover{
 	text-align: center;
 }
 
-#playButton, #logOffButton, #statsButton {
+.ranking-button {
+	position: fixed;
+	bottom: 30px;
+	left: 30px;
+}
+
+.ranking-button button {
 	background-color: #67965d;
+	color: #ffffff;
 	border: none;
-	padding: 20px 40px;
-	font-size: 18px;
-	margin: 15px;
+	padding: 10px 20px;
+	font-size: 16px;
+	border-radius: 5px;
 	cursor: pointer;
-	border-radius: 10px;
-	box-shadow: 20px 20px 50px #537a47, -20px -20px 50px #85b277;
-	color: #ffffff;
+	transition: background-color 0.3s;
 }
 
-#playButton:hover, #logOffButton:hover, #statsButton:hover {
-	box-shadow: inset 20px 20px 50px #537a47, inset -20px -20px 50px #85b277;
+.ranking-button button i {
+	margin-right: 5px;
 }
 
-#welcomeMessage {
-	font-size: 32px;
-	margin-bottom: 30px;
-	color: #ffffff;
+.ranking-button button:hover {
+	background-color: #537a47;
 }
 
 .score-container {
