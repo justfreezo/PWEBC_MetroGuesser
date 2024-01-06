@@ -14,7 +14,12 @@ if (isset($_SESSION['score']) && isset($_SESSION['user_name']) && isset($_SESSIO
         <script src="../js/mapScript.js"></script>
     </head>
     <body>
-        <div class="input_box">
+    <div class="wrapper">
+        <div class="login_box">
+            <div class="login-header">
+                <span>Stats</span>
+            </div>
+
             <h1>Statistiques du joueur <?php echo $_SESSION['user_name'] ?></h1>
 
             <div class="stats">
@@ -34,8 +39,11 @@ if (isset($_SESSION['score']) && isset($_SESSION['user_name']) && isset($_SESSIO
                 </table>
             </div>
 
-            <a href="../home.php" class="input-submit">Retour</a>
+            <div class="input-box">
+                <a class="input-submit" href="../home.php">Retour</a>
+            </div>
         </div>
+    </div>
 
     </body>
     </html>
