@@ -22,10 +22,15 @@ body {
 	flex-direction: column;
 }
 
+h1 {
+	text-align: center;
+}
+
 .header{
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	gap: 40px;
 }
 
 .title{
@@ -57,11 +62,11 @@ a:hover{
 
 .login_box{
 	position: relative;
-	width: 450px;
+	width: 550px;
 	backdrop-filter: blur(25px);
 	border: 2px solid var(--primary-color);
 	border-radius: 15px;
-	padding: 7.5em 2.5em 4em 2.5em;
+	padding: 5.5em 2.5em 4em 2.5em;
 	color: var(--second-color);
 	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
 }
@@ -160,6 +165,39 @@ a:hover{
 
 .input-submit:hover{
 	background: var(--second-color);
+}
+
+.welcome-container {
+	background-color: #67965d;
+	border-radius: 20px;
+	padding: 50px;
+	box-shadow: 20px 20px 50px #537a47, -5px -5px 50px #85b277;
+	text-align: center;
+}
+
+.ranking-button {
+	position: fixed;
+	bottom: 30px;
+	left: 30px;
+}
+
+.ranking-button button {
+	background-color: #67965d;
+	color: #ffffff;
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.ranking-button button i {
+	margin-right: 5px;
+}
+
+.ranking-button button:hover {
+	background-color: #537a47;
 }
 
 .score-container {

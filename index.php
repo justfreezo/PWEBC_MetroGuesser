@@ -8,18 +8,6 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="js/script.js"></script>
-    <script>
-        function afficherInscription() {
-            document.getElementById("inscriptionForm").style.display = "block";
-            document.getElementById("connexionForm").style.display = "none";
-        }
-
-        function cacherInscription() {
-            document.getElementById("inscriptionForm").style.display = "none";
-            document.getElementById("connexionForm").style.display = "block";
-        }
-    </script>
-
 </head>
 <body>
     <div class="wrapper">
@@ -69,6 +57,12 @@
                 </div>
             </div>
         </form>
+
+        <div class="ranking-button">
+            <button onclick="showRanking()">
+                <i class='bx bxs-bar-chart-alt-2'></i> Ranking
+            </button>
+        </div>
     </div>
 </body>
 </html>
