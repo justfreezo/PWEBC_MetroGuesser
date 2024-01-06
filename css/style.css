@@ -48,7 +48,7 @@ a {
 }
 
 a:hover{
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 .wrapper{
@@ -278,14 +278,27 @@ a:hover{
 .stats{
 	align-self: center;
 	justify-self: center;
-	padding: 5%;
+	padding: 3%;
+	margin-bottom: 25px;
+	max-height: 350px;
+	overflow: auto;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
 }
 
 .stats-table {
 	border-collapse: collapse;
 	width: 100%;
-	max-width: 400px;
 	margin-top: 20px;
+}
+
+.stats-table tr:hover:not(:first-child) {
+	background-color: #43763e;
+}
+
+.stats-table tr:not(:last-child) {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .stats-table td {
@@ -293,8 +306,8 @@ a:hover{
 	padding: 8px;
 }
 
-.stats-table tr:not(:last-child) {
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.stats-table th, .stats-table td {
+	text-align: center;
 }
 
 .stats-table td:first-child {
@@ -302,8 +315,23 @@ a:hover{
 	width: 50%;
 }
 
-.stats-table td:nth-child(2) {
-	text-align: right;
+::-webkit-scrollbar {
+	width: 10px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #b4c1aa;
+	border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #90a783;
 }
 
 @media only screen and (max-width: 564px) {

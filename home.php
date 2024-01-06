@@ -10,6 +10,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Accueil</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="js/script.js"></script>
 </head>
@@ -33,6 +34,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
             <div class="input-box">
                 <button class="input-submit" onclick="startGame()">Jouer !</button>
             </div>
+        </div>
+
+        <div class="ranking-button">
+            <button onclick="showRanking()">
+                <i class='bx bxs-bar-chart-alt-2'></i> Ranking
+            </button>
         </div>
     </div>
 </body>
