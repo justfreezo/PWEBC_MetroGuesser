@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,17 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        function afficherInscription() {
+            document.getElementById("inscriptionForm").style.display = "block";
+            document.getElementById("connexionForm").style.display = "none";
+        }
+
+        function cacherInscription() {
+            document.getElementById("inscriptionForm").style.display = "none";
+            document.getElementById("connexionForm").style.display = "block";
+        }
+    </script>
 </head>
 <body>
     <div class="wrapper">
