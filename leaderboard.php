@@ -2,7 +2,7 @@
 session_start();
 
 $pdo = new PDO("mysql:server=localhost;dbname=metroguesser", "root", "paulojulia");
-$stmt = $pdo->prepare("SELECT user_name, score, time, nbGame FROM users ORDER BY score DESC;");
+$stmt = $pdo->prepare("SELECT u.user_name, s.score, s.time, s.nbGame FROM users u, stats s WHERE u.id = s.id ORDER BY s.score DESC;");
 
 $result = $stmt->execute();
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);

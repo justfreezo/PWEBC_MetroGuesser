@@ -126,15 +126,23 @@ a:hover{
 	height: 55px;
 	font-size: 16px;
 	background: transparent;
-	color: var(--second-color);
+	color: black;
 	padding-inline: 20px 50px;
 	border: 2px solid var(--primary-color);
 	border-radius: 30px;
 	outline: none;
 }
 
+.input-field:hover{
+	background: rgba(255, 255, 255, 0.7);
+}
+
 .input-field::placeholder{
 	color: #c6c3c3;
+}
+
+.input-field:hover::placeholder{
+	color: black;
 }
 
 #user{

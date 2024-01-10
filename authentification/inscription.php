@@ -37,6 +37,11 @@ if (isset($_POST['newUname']) && isset($_POST['newPassword'])) {
         $stmt->bindParam(':newPass', $newPass);
 
         if ($stmt->execute()) {
+            $userId = $pdo->lastInsertId();
+            $stmtStats = $pdo->prepare("INSERT INTO stats (id) VALUES (:userId)");
+            $stmtStats->bindParam(':userId', $userId);
+            $stmtStats->execute();
+
             header("Location: ../home.php");
         } else {
             echo "Erreur : " . $stmt->errorInfo()[2];

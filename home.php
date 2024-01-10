@@ -13,7 +13,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 </head>
 <body>
