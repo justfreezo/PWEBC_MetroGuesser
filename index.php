@@ -6,6 +6,7 @@
 	<title>Connexion</title>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" href="img/icon.ico" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="js/script.js"></script>
     <script>
@@ -61,7 +62,7 @@
                     <i class="bx bx-lock-alt icon"></i>
                 </div>
                 <div class="input_box">
-                    <input type="submit" class="input-submit" value="S'inscrire">
+                    <input type="submit" class="input-submit" value="Valider">
                 </div>
                 <div class="input-box">
                     <button type="button" class="input-submit"  onclick="cacherInscription()">Annuler</button>

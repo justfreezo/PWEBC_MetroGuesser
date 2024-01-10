@@ -11,7 +11,7 @@ if (isset($_SESSION['user_name'])) {
         <title>Map</title>
         <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-        <script src="https://github.com/IvanSanchez/Leaflet.Polyline.SnakeAnim/blob/master/L.Polyline.SnakeAnim.js"></script>
+        <link rel="icon" href="../img/icon.ico" type="image/x-icon">
         <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script> var playerName = "<?php echo $_SESSION['user_name']; ?>"</script>
